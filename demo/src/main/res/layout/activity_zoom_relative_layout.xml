@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<com.lokiy.demo.view.ZoomRelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/colorPrimary"
+		android:layout_margin="30dp"
+		app:zoomSize="0.666">
+		<TextView
+			android:id="@+id/aaa"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="哈哈哈" />
+
+		<TextView
+			android:id="@+id/bbb"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/aaa"
+			android:text="嘿嘿嘿" />
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:src="@mipmap/ggk_cover" />
+
+	</com.lokiy.demo.view.ZoomRelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <attr name="round" format="boolean" />
+    <attr name="roundColor" format="color" />
+    <attr name="zoomSize" format="float" />
+    <attr name="zoomWidth" format="float" />
+	<attr name="textSize" format="dimension" />
+	<attr name="textColor" format="color" />
+	<attr name="text" format="string"/>
+	<attr name="corner" format="boolean" />
+
+    <declare-styleable name="XImageView">
+        <attr name="autoZoom" format="boolean" />
+        <attr name="showImageWithoutNetStatus" format="boolean" />
+	    <!-- is needs Anim [default is true] -->
+	    <attr name="isAnim" format="boolean" />
+	    <!-- round should set true -->
+	    <attr name="roundColor" />
+        <attr name="cornerRadii" format="dimension" />
+        <attr name="defaultImg" format="reference" />
+        <attr name="zoomSize" />
+        <attr name="loadFailedVisibility">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+	    <attr name="roundType">
+		    <enum name="none" value="0" />
+		    <enum name="circle" value="1" />
+		    <enum name="rounded_rect" value="2" />
+	    </attr>
+	    <attr name="borderWidth" format="dimension" />
+    </declare-styleable>
+	<declare-styleable name="BannerView">
+		<attr name="indicator" format="reference"/>
+		<attr name="showIndicator" format="boolean"/>
+		<attr name="pageMargin" format="dimension" />
+		<attr name="indicator_gravity">
+	        <!-- Push object to the top of its container, not changing its size. -->
+			<flag name="top" value="0x30" />
+			<!-- Push object to the bottom of its container, not changing its size. -->
+			<flag name="bottom" value="0x50" />
+			<!-- Push object to the left of its container, not changing its size. -->
+			<flag name="left" value="0x03" />
+			<!-- Push object to the right of its container, not changing its size. -->
+			<flag name="right" value="0x05" />
+			<!-- Place object in the vertical center of its container, not changing its size. -->
+			<flag name="center_vertical" value="0x10" />
+			<!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+			<flag name="fill_vertical" value="0x70" />
+			<!-- Place object in the horizontal center of its container, not changing its size. -->
+			<flag name="center_horizontal" value="0x01" />
+			<!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+			<flag name="fill_horizontal" value="0x07" />
+			<!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+			<flag name="center" value="0x11" />
+			<!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+			<flag name="fill" value="0x77" />
+			<!-- Additional option that can be set to have the top and/or bottom edges of
+				 the child clipped to its container's bounds.
+				 The clip will be based on the vertical gravity: a top gravity will clip the bottom
+				 edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
+			<flag name="clip_vertical" value="0x80" />
+			<!-- Additional option that can be set to have the left and/or right edges of
+				 the child clipped to its container's bounds.
+				 The clip will be based on the horizontal gravity: a left gravity will clip the right
+				 edge, a right gravity will clip the left edge, and neither will clip both edges. -->
+			<flag name="clip_horizontal" value="0x08" />
+			<!-- Push object to the beginning of its container, not changing its size. -->
+			<flag name="start" value="0x00800003" />
+			<!-- Push object to the end of its container, not changing its size. -->
+			<flag name="end" value="0x00800005" />
+	    </attr>
+        <attr name="corner"/>
+	</declare-styleable>
+	<declare-styleable name="XTextView">
+		<attr name="debugText" format="string"/>
+		<attr name="zoomSize" />
+	</declare-styleable>
+	<declare-styleable name="XRoundTextView">
+		<attr name="paintColor" format="color"/>
+		<attr name="paintPressedColor" format="color"/>
+		<attr name="pressedSelectorEnable" format="boolean"/>
+		<attr name="strokeWidth" format="dimension" />
+		<attr name="strokeBackground" format="color"/>
+		<attr name="style">
+			<enum name="FILL" value="0"/>
+			<enum name="FILL_RIGHT_CIRCLE" value="1"/>
+			<enum name="FILL_LEFT_CIRCLE" value="2"/>
+			<enum name="STROKE" value="3"/>
+			<enum name="STROKE_LEFT_CIRCLE" value="4"/>
+			<enum name="STROKE_RIGHT_CIRCLE" value="5"/>
+			<enum name="STROKE_WITH_BACKGROUND" value="6"/>
+			<enum name="NONE" value="7"/>
+		</attr>
+	</declare-styleable>
+    <declare-styleable name="ZoomRelativeLayout">
+        <attr name="zoomSize" />
+    </declare-styleable>
+    <declare-styleable name="ZoomFrameLayout">
+        <attr name="zoomSize" />
+        <attr name="zoomWidth" />
+    </declare-styleable>
+    <declare-styleable name="GuaGuaKa">
+        <attr name="zoomSize" />
+	    <attr name="src" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="XMultiFrontCheckedView">
+        <attr name="count" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="XGridView">
+        <attr name="hasGridLineBg" format="boolean" />
+        <attr name="gridOffset" format="dimension" />
+        <attr name="rowBackground" format="reference" />
+        <attr name="drawPosition">
+            <flag name="center" value="-1" />
+            <flag name="bottom" value="-2" />
+            <flag name="top" value="-4" />
+        </attr>
+        <attr name="left" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="XListView">
+        <attr name="swipeOpenOnLongPress" format="boolean" />
+        <attr name="swipeAnimationTime" format="integer" />
+        <attr name="swipeOffsetLeft" format="dimension" />
+        <attr name="swipeOffsetRight" format="dimension" />
+        <attr name="swipeCloseAllItemsWhenMoveList" format="boolean" />
+        <attr name="swipeFrontView" format="reference" />
+        <attr name="swipeBackView" format="reference" />
+        <attr name="swipeMode" format="enum">
+            <enum name="none" value="0" />
+            <enum name="both" value="1" />
+            <enum name="right" value="2" />
+            <enum name="left" value="3" />
+        </attr>
+        <attr name="swipeActionLeft" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeActionRight" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeDrawableChecked" format="reference" />
+        <attr name="swipeDrawableUnchecked" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="StickyListHeadersListView">
+
+        <!-- View attributes -->
+	    <attr name="android:clipToPadding" />
+        <attr name="android:scrollbars" />
+        <attr name="android:overScrollMode" />
+        <attr name="android:padding" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingBottom" />
+
+	    <!-- ListView attributes -->
+	    <attr name="android:fadingEdgeLength" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:cacheColorHint" />
+        <attr name="android:choiceMode" />
+        <attr name="android:drawSelectorOnTop" />
+        <attr name="android:fastScrollEnabled" />
+        <attr name="android:fastScrollAlwaysVisible" />
+        <attr name="android:listSelector" />
+        <attr name="android:scrollingCache" />
+        <attr name="android:scrollbarStyle" />
+        <attr name="android:divider" />
+        <attr name="android:dividerHeight" />
+        <attr name="android:transcriptMode" />
+
+	    <!-- StickyListHeaders attributes -->
+	    <attr name="hasStickyHeaders" format="boolean" />
+        <attr name="isDrawingListUnderStickyHeader" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="ZoomTextView">
+        <attr name="minTextSize" format="dimension" />
+        <attr name="maxTextSize" format="dimension" />
+    </declare-styleable>
+	<declare-styleable name="XRoundProgressBar">
+		<attr name="max" format="integer" />
+		<attr name="roundWidth" format="dimension" />
+		<attr name="roundColor" />
+		<attr name="roundBgColor" format="color" />
+		<attr name="hasProgressText" format="boolean"/>
+	</declare-styleable>
+
+    <declare-styleable name="PullToZoomView">
+        <attr name="headerView" format="reference" />
+        <attr name="contentView" format="reference" />
+        <attr name="zoomView" format="reference" />
+        <attr name="isHeaderParallax" format="boolean" />
+    </declare-styleable>
+
+	<declare-styleable name="MoveTextView">
+		<attr name="textSize" />
+		<attr name="textColor" />
+	</declare-styleable>
+
+	<declare-styleable name="WaveView">
+		<attr name="above_wave_color" format="color"/>
+		<attr name="blow_wave_color" format="color"/>
+		<attr name="progress" format="integer"/>
+        <attr name="wave_length" format="enum">
+            <enum name="large" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="little" value="3"/>
+        </attr>
+        <attr name="wave_height" format="enum">
+            <enum name="large" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="little" value="3"/>
+        </attr>
+        <attr name="wave_hz" format="enum">
+            <enum name="fast" value="1"/>
+            <enum name="normal" value="2"/>
+            <enum name="slow" value="3"/>
+        </attr>
+	</declare-styleable>
+
+	<declare-styleable name="Themes">
+		<attr name="waveViewStyle" format="reference"/>
+	</declare-styleable>
+	<declare-styleable name="AutoTextView">
+		<attr name="textSize" />
+		<attr name="textColor" />
+	</declare-styleable>
+	<declare-styleable name="CountdownView">
+		<attr name="textSize" />
+		<attr name="textColor" />
+		<attr name="titleText" format="string" />
+		<attr name="titleTextColor" format="color"/>
+		<attr name="childWidth" format="dimension" />
+		<attr name="childHeight" format="dimension" />
+		<attr name="dotTextColor" format="color" />
+		<attr name="childBackground" format="reference" />
+	</declare-styleable>
+
+
+    <declare-styleable name="XRefreshView">
+        <attr name="isHeightMatchParent" format="boolean" />
+        <attr name="isWidthMatchParent" format="boolean" />
+        <attr name="autoRefresh" format="boolean" />
+        <attr name="autoLoadMore" format="boolean" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#339900">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="网络图片" />
+			<com.lokiy.widget.XImageView
+				android:id="@+id/ximageview"
+				android:layout_width="100dp"
+				android:layout_height="wrap_content"
+				android:src="@mipmap/ggk_cover"
+				app:roundType="circle"
+				android:layout_gravity="center"
+				app:zoomSize="1" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="autoZoom:true|corner:30dp|type:rounded_rect|isAnim:true" />
+			<com.lokiy.widget.XImageView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:src="@mipmap/ggk_cover"
+				app:autoZoom="true"
+				app:cornerRadii="30dp"
+				app:isAnim="true"
+				app:roundType="rounded_rect" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="zoomSize:0.3" />
+			<com.lokiy.widget.XImageView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:src="@mipmap/ggk_cover"
+				app:zoomSize="0.3" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="autoZoom:true" />
+			<com.lokiy.widget.XImageView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:src="@mipmap/ggk_cover"
+				app:autoZoom="true" />
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>
