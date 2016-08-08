@@ -4,10 +4,14 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toolbar;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -18,6 +22,14 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends ListActivity {
+
+	private final static Comparator<Map<String, Object>> sDisplayNameComparator = new Comparator<Map<String, Object>>() {
+		private final Collator collator = Collator.getInstance();
+
+		public int compare(Map<String, Object> map1, Map<String, Object> map2) {
+			return collator.compare(map1.get("title"), map2.get("title"));
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,9 +42,20 @@ public class MainActivity extends ListActivity {
 			path = "";
 		}
 
-		setListAdapter(new SimpleAdapter(this, getData(path),
-				android.R.layout.simple_list_item_1, new String[] { "title" },
-				new int[] { android.R.id.text1 }));
+		setContentView(R.layout.activity_main);
+
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			setActionBar(toolbar);
+			toolbar.setTitleTextColor(0xFFFFFFFF);
+			toolbar.setEnabled(true);
+			if (!TextUtils.isEmpty(path)) {
+				toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+			}
+		}
+
+
+		setListAdapter(new SimpleAdapter(this, getData(path), android.R.layout.simple_list_item_1, new String[]{"title"}, new int[]{android.R.id.text1}));
 		getListView().setTextFilterEnabled(true);
 	}
 
@@ -65,9 +88,7 @@ public class MainActivity extends ListActivity {
 		for (int i = 0; i < len; i++) {
 			ResolveInfo info = list.get(i);
 			CharSequence labelSeq = info.loadLabel(pm);
-			String label = labelSeq != null
-					? labelSeq.toString()
-					: info.activityInfo.name;
+			String label = labelSeq != null ? labelSeq.toString() : info.activityInfo.name;
 
 			if (prefixWithSlash.length() == 0 || label.startsWith(prefixWithSlash)) {
 
@@ -76,9 +97,7 @@ public class MainActivity extends ListActivity {
 				String nextLabel = prefixPath == null ? labelPath[0] : labelPath[prefixPath.length];
 
 				if ((prefixPath != null ? prefixPath.length : 0) == labelPath.length - 1) {
-					addItem(myData, nextLabel, activityIntent(
-							info.activityInfo.applicationInfo.packageName,
-							info.activityInfo.name));
+					addItem(myData, nextLabel, activityIntent(info.activityInfo.applicationInfo.packageName, info.activityInfo.name));
 				} else {
 					if (entries.get(nextLabel) == null) {
 						addItem(myData, nextLabel, browseIntent(prefix.equals("") ? nextLabel : prefix + "/" + nextLabel));
@@ -93,14 +112,12 @@ public class MainActivity extends ListActivity {
 		return myData;
 	}
 
-	private final static Comparator<Map<String, Object>> sDisplayNameComparator =
-			new Comparator<Map<String, Object>>() {
-				private final Collator collator = Collator.getInstance();
-
-				public int compare(Map<String, Object> map1, Map<String, Object> map2) {
-					return collator.compare(map1.get("title"), map2.get("title"));
-				}
-			};
+	protected void addItem(List<Map<String, Object>> data, String name, Intent intent) {
+		Map<String, Object> temp = new HashMap<String, Object>();
+		temp.put("title", name);
+		temp.put("intent", intent);
+		data.add(temp);
+	}
 
 	protected Intent activityIntent(String pkg, String componentName) {
 		Intent result = new Intent();
@@ -115,17 +132,20 @@ public class MainActivity extends ListActivity {
 		return result;
 	}
 
-	protected void addItem(List<Map<String, Object>> data, String name, Intent intent) {
-		Map<String, Object> temp = new HashMap<String, Object>();
-		temp.put("title", name);
-		temp.put("intent", intent);
-		data.add(temp);
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case android.R.id.home:
+				onBackPressed();
+				break;
+		}
+		return true;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		Map<String, Object> map = (Map<String, Object>)l.getItemAtPosition(position);
+		Map<String, Object> map = (Map<String, Object>) l.getItemAtPosition(position);
 
 		Intent intent = new Intent((Intent) map.get("intent"));
 		intent.addCategory(Intent.CATEGORY_SAMPLE_CODE);

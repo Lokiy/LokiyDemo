@@ -30,7 +30,7 @@
 		    <enum name="circle" value="1" />
 		    <enum name="rounded_rect" value="2" />
 	    </attr>
-	    <attr name="borderWidth" format="dimension" />
+	    <attr name="borderWidth"/>
     </declare-styleable>
 	<declare-styleable name="BannerView">
 		<attr name="indicator" format="reference"/>

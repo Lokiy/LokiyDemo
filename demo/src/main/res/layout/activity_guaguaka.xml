@@ -5,7 +5,7 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<com.lokiy.demo.view.ZoomRelativeLayout
+	<com.lokiy.view.ZoomRelativeLayout
 		android:layout_width="match_parent"
 		android:layout_height="300dp"
 		android:layout_margin="30dp"
@@ -31,6 +31,6 @@
 			android:src="@mipmap/ggk_cover"
 			app:zoomSize="0.281" />
 
-	</com.lokiy.demo.view.ZoomRelativeLayout>
+	</com.lokiy.view.ZoomRelativeLayout>
 
 </LinearLayout>
